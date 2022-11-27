@@ -3,3 +3,5 @@
 [user]
 	name = Gabriel Rincon
 	email = gabrielenrrincon@gmail.com
+[url "git@github.com:"]
+	insteadOf = https://github.com/

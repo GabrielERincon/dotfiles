@@ -1,0 +1,24 @@
+[submodule ".vim/pack/plugins/start/CycleColor"]
+	path = .vim/pack/plugins/start/CycleColor
+	url = https://github.com/vim-scripts/CycleColor
+[submodule ".vim/pack/plugins/start/vim-fugitive"]
+	path = .vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/pack/plugins/start/nerdtree"]
+	path = .vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule ".vim/pack/plugins/start/vim-gitgutter"]
+	path = .vim/pack/plugins/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/pack/plugins/start/vim-polyglot"]
+	path = .vim/pack/plugins/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule ".vim/pack/plugins/start/ultisnips"]
+	path = .vim/pack/plugins/start/ultisnips
+	url = https://github.com/sirver/ultisnips.git
+[submodule ".vim/pack/plugins/start/vimtex"]
+	path = .vim/pack/plugins/start/vimtex
+	url = https://github.com/lervag/vimtex.git
+[submodule ".vim/pack/plugins/start/awesome-vim-colorschemes"]
+	path = .vim/pack/plugins/start/awesome-vim-colorschemes
+	url = https://github.com/rafi/awesome-vim-colorschemes.git

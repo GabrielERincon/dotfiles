@@ -1,0 +1,136 @@
+set nocompatible
+
+if has('nvim')
+  " Neovim specific commands
+  set t_8f=[38;2;%lu;%lu;%lum
+  set t_8b=[48;2;%lu;%lu;%lum
+  set termguicolors
+else
+  " Vim specific commands
+  set ttyfast
+endif
+
+" https://vimhelp.org/options.txt.html
+
+"colorscheme cwcolors
+syntax on
+
+set tabstop=2
+set autoindent
+set smarttab
+set smartindent
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+set wrap
+set hlsearch
+set incsearch
+set showmatch
+set background=dark
+set paste
+set ignorecase
+set smartcase
+set laststatus=0
+set ruler
+set backspace=indent,eol,start
+set encoding=utf-8
+set scrolloff=3
+set showcmd
+set hidden
+set wildmenu
+set wildmode=list:longest
+"set visualbell
+"set cursorline
+set lazyredraw
+set undofile
+
+" Fix the arrow keys
+"set t_ku=[A
+"set t_kd=[B
+"set t_kr=[C
+"set t_kl=[D
+
+set t_Co=8
+set t_Sb=m
+set t_Sf=m
+
+"colorscheme gruvbox
+colorscheme molokai
+"colorscheme afterglow
+"colorscheme ayu
+"colorscheme onehalfdark
+"colorscheme atom
+"colorscheme solarized*
+"colorscheme tender
+"colorscheme sonokai
+"colorscheme nord
+"colorscheme seoul256-light
+"colorscheme seoul256
+
+"colorscheme deus
+"colorscheme purify
+"colorscheme desert
+"colorscheme torte
+
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\=/:
+
+" Highlight extra spaces
+highlight BadWhitespace ctermbg=red guibg=red
+autocmd BufRead,BufNewFile *.sh,*.py,*.yaml,*json match BadWhitespace /\s\+$\| \+\ze\t\|[^\t]\zs\t/
+
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+function! NumberCycle()
+  if(&number == 0 && &relativenumber == 0)
+    set nonumber | set relativenumber
+  elseif(&number == 0 && &relativenumber == 1)
+    set number   | set norelativenumber
+  elseif(&number == 1 && &relativenumber == 0)
+    set number   | set relativenumber
+  elseif(&number == 1 && &relativenumber == 1)
+    set nonumber | set norelativenumber
+  endif
+endfunc
+noremap <silent> <leader>ln :call NumberCycle()<CR>
+
+" Use normal regexes in searches
+nnoremap / /\v
+vnoremap / /\v
+
+nnoremap <silent> <leader><space> :noh<cr>
+map <silent> <leader>ntt :NERDTreeToggle<CR>
+nnoremap <silent> <leader>ccn :CycleColorNext<cr>
+nnoremap <silent> <leader>ccp :CycleColorPrev<cr>
+nnoremap <silent> <leader>ggt :GitGutterToggle<CR>
+nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR> " Remove trailing white space
+nnoremap <silent> <leader>ev :vsp ~/.vim/vimrc<CR>
+nnoremap <silent> <leader>apt :call autopairs#AutoPairsToggle()<CR>
+
+set foldmethod=syntax
+set foldnestmax=1
+set foldlevelstart=1
+
+" Python
+autocmd FileType python setlocal shiftwidth=4
+autocmd FileType python setlocal tabstop=4
+autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setlocal foldmethod=indent
+autocmd FileType python setlocal foldlevel=99
+
+" vimtex settings
+let g:tex_flavour='latex'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_concel='abdmg'
+
+" ultisnips settings
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTriger = '<s-tab>'
