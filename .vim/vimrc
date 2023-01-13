@@ -28,7 +28,7 @@ set hlsearch
 set incsearch
 set showmatch
 set background=dark
-set paste
+"set paste
 set ignorecase
 set smartcase
 set laststatus=0
@@ -55,8 +55,7 @@ set t_Co=8
 set t_Sb=m
 set t_Sf=m
 
-"colorscheme gruvbox
-colorscheme molokai
+"colorscheme molokai
 "colorscheme afterglow
 "colorscheme ayu
 "colorscheme onehalfdark
@@ -131,6 +130,7 @@ set conceallevel=1
 let g:tex_concel='abdmg'
 
 " ultisnips settings
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "~/.vim/UltiSnips"]
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTriger = '<s-tab>'
